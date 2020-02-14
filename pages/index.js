@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import  './global.scss'
 import {Button} from 'antd'
 
 const Home = () => (
