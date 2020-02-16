@@ -4,7 +4,7 @@ import { Row, Col, Menu, Icon } from 'antd';
 
 const Header = () => (
   <div className="header">
-    <Row type="flex" justify="space-between" align="bottom">
+    <Row type="flex" justify="space-between" align="middle">
       <Col xs={24} sm={24} md={10} lg={10} xl={10}>
         <span className="logo">HYN</span>
         <span className="headerText">慢慢琢磨一些技术。。。</span>

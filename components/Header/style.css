@@ -9,15 +9,16 @@
   color: #1e90ff;
   font-size: 51px;
   font-weight: bold;
-  padding-left: .6rem;
+  padding-left: 1rem;
 }
 
 .header .headerText {
   color: gray;
-  padding-left: .3rem;
+  padding-left: .5rem;
 }
 
 .header .menuStyle {
+  font-size: 1.2rem;
   border: none;
 }
 
