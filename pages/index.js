@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { Row, Col, List, Icon } from 'antd';
 import Header from '../components/Header';
+import Author from '../components/Author';
 import "./index.scss"
 
 const Home = () => {
@@ -36,7 +37,7 @@ const Home = () => {
       </Head>
       <Header />
       <Row className="common-main" type="flex" justify="center">
-        <Col className="common-right" xs={24} sm={24} md={16} lg={18} xl={14}>
+        <Col className="common-left" xs={24} sm={24} md={16} lg={18} xl={14}>
           <List
             header={<div>最新日志</div>}
             itemLayout="vertical"
@@ -55,7 +56,7 @@ const Home = () => {
           />
         </Col>
         <Col className="common-right" xs={0} sm={0} md={7} lg={5} xl={4}>
-          右侧
+          <Author />
         </Col>
       </Row>
     </div>
