@@ -4,6 +4,7 @@ import { Row, Col, List, Icon } from 'antd';
 import Header from '../components/Header';
 import Author from '../components/Author';
 import Ads from '../components/Ads';
+import Footer from '../components/Footer';
 import "./index.scss"
 
 const Home = () => {
@@ -61,6 +62,7 @@ const Home = () => {
           <Ads />
         </Col>
       </Row>
+      <Footer />
     </div>
   );
 };

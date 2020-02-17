@@ -11,9 +11,6 @@ const Ads = () => (
     <div>
       <img src="http://newimg.jspang.com/web111111.jpg" />
     </div>
-    <div>
-      <img src="http://newimg.jspang.com/web111111.jpg" />
-    </div>
   </div>
 )
 
