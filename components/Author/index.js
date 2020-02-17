@@ -8,7 +8,7 @@ const Author = () => {
         <Avatar size={100} src={require('./head.jpg')}></Avatar>
       </div>
       <div className="author-introduction">
-        佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发。
+        佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发。
       </div>
       <Divider>社交账号</Divider>
       <Avatar size={28} icon='github' className="account" />
