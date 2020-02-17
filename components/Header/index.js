@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.scss';
-import { Row, Col, Menu, Icon } from 'antd';
+import { Row, Col, Icon, Menu } from 'antd';
 
 const Header = () => (
   <div className="header">
