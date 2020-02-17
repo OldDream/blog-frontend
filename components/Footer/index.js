@@ -1,5 +1,3 @@
-import './style.scss';
-
 const Footer = () => (
   <div className="footer-div">
     <p>Based on Next.Js + Egg.Js</p>
