@@ -13,3 +13,16 @@
   padding: 1.3rem;
   font-size: 1rem;
 }
+.mdnav-div {
+  margin-left: 0;
+  position: sticky;
+  top: 5px;
+  > .title {
+    text-align: center;
+    color: #888;
+    border-bottom: 1px solid rgb(30, 144, 255);
+  }
+  > .md-category {
+    font-size: 0.75rem;
+  }
+}
