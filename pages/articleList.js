@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import { Row, Col, List, Icon, Breadcrumb } from 'antd';
-import axios from 'axios'
+import axios from '../utils/axios'
 import dateFormat from 'dateformat'
 import Header from '../components/Header';
 import Author from '../components/Author';
@@ -56,7 +56,7 @@ const articleListPage = (result) => {
 
 const getArticleList = () => {
   return new Promise((resolve, reject) => {
-    axios.get('http://127.0.0.1:7001/admin/getArticleList').then(res => {
+    axios.get('/admin/getArticleList').then(res => {
       resolve(res.data)
     })
   })
