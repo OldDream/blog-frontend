@@ -7,51 +7,18 @@ import Author from '../components/Author';
 import Ads from '../components/Ads';
 import ReactMarkdown from 'react-markdown';
 import MDNav from 'markdown-navbar';
+import axios from '../utils/axios';
 
 import 'markdown-navbar/dist/navbar.css';
 import './detail.scss';
 
-const Detail = () => {
-  let markdown =
-    '## p01:课程介绍和环境搭建\n' +
-    '[ **M** ] arkdown + E [ **ditor** ] = **Mditor**  \n' +
-    '> Mditor 是一个简洁、易于集成、方便扩展、期望舒服的编写 markdown 的编辑器，仅此而已... \n\n' +
-    '**这是加粗的文字**\n\n' +
-    '*这是倾斜的文字*`\n\n' +
-    '***这是斜体加粗的文字***\n\n' +
-    '~~这是加删除线的文字~~ \n\n' +
-    '`console.log(111)` \n\n' +
-    '## p02:来个Hello World 初始Vue3.0\n' +
-    '> aaaaaaaaa\n' +
-    '>> bbbbbbbbb\n' +
-    '>>> cccccccccc\n' +
-    '***\n\n\n' +
-    '## p03:Vue3.0基础知识讲解\n' +
-    '> aaaaaaaaa\n' +
-    '>> bbbbbbbbb\n' +
-    '>>> cccccccccc\n\n' +
-    '## p04:Vue3.0基础知识讲解\n' +
-    '> aaaaaaaaa\n' +
-    '>> bbbbbbbbb\n' +
-    '>>> cccccccccc\n\n' +
-    '## p05:Vue3.0基础知识讲解\n' +
-    '> aaaaaaaaa\n' +
-    '>> bbbbbbbbb\n' +
-    '>>> cccccccccc\n\n' +
-    '## p06:Vue3.0基础知识讲解\n' +
-    '> aaaaaaaaa\n' +
-    '>> bbbbbbbbb\n' +
-    '>>> cccccccccc\n\n' +
-    '## p07:Vue3.0基础知识讲解\n' +
-    '> aaaaaaaaa\n' +
-    '>> bbbbbbbbb\n' +
-    '>>> cccccccccc\n\n' +
-    '``` var a=11; ```';
+const Detail = (detail) => {
+  const [article, setArticle] = useState(detail.data);
 
   return (
     <div>
       <Head>
-        <title>HYN's Blog - 文章列表</title>
+        <title>HYN's Blog - {article.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
@@ -65,45 +32,59 @@ const Detail = () => {
               <Breadcrumb.Item>
                 <a href="/articleList">文章列表</a>
               </Breadcrumb.Item>
-              <Breadcrumb.Item>文章标题</Breadcrumb.Item>
+              <Breadcrumb.Item>{article.title}</Breadcrumb.Item>
             </Breadcrumb>
           </div>
           <div>
             <div className="article-title">
-              文章标题文章标题文章标题文章标题
+              {article.title}
             </div>
             <div className="icon-list center">
               <span>
-                <Icon type="calendar" /> 2019-06-28
+                <Icon type="calendar" /> {article.created_time}
               </span>
               <span>
-                <Icon type="folder" /> 视频教程
+                <Icon type="folder" />  {article.typeName}
               </span>
               <span>
-                <Icon type="fire" /> 5498人阅读
+                <Icon type="fire" /> {article.view_count}人阅读
               </span>
             </div>
             <div className="content-div">
-              <ReactMarkdown source={markdown} escapeHtml={false} />
+              <ReactMarkdown source={article.content} escapeHtml={false} />
             </div>
           </div>
         </Col>
         <Col className="common-right" xs={0} sm={0} md={7} lg={5} xl={4}>
           <Author />
           <Ads />
-            <div className="mdnav-div common-box">
-              <div className="tltle">文章目录</div>
-              <MDNav
-                className="md-category"
-                source={markdown}
-                ordered={false}
-              />
-            </div>
+          <div className="mdnav-div common-box">
+            <div className="title">文章目录</div>
+            <MDNav
+              className="md-category"
+              source={article.content}
+              ordered={false}
+            />
+          </div>
         </Col>
       </Row>
       <Footer />
     </div>
   );
+};
+
+const getDetail = (ctx) => {
+  return new Promise((resolve, reject) => {
+    axios.get('/client/getArticleById?id=' + ctx.query.id).then(res => {
+      console.log(res.data.data)
+      resolve(res.data);
+    });
+  });
+};
+
+// nexjs getInitialProps 专属生命周期
+Detail.getInitialProps = async (ctx) => {
+  return await getDetail(ctx);
 };
 
 export default Detail;

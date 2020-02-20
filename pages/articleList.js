@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import { Row, Col, List, Icon, Breadcrumb } from 'antd';
-import axios from '../utils/axios'
+import axios from '../utils/axios';
 import Header from '../components/Header';
 import Author from '../components/Author';
 import Ads from '../components/Ads';
 import Footer from '../components/Footer';
-import "./articleList.scss"
+import './articleList.scss';
 
-const articleListPage = (result) => {
+const articleListPage = result => {
   const [articleList, setArticleList] = useState(result.data);
 
   return (
@@ -22,7 +23,9 @@ const articleListPage = (result) => {
         <Col className="common-left" xs={24} sm={24} md={16} lg={18} xl={14}>
           <div className="breadcrumb-div">
             <Breadcrumb>
-              <Breadcrumb.Item><a href='/'>首页</a></Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <a href="/">首页</a>
+              </Breadcrumb.Item>
               <Breadcrumb.Item>文章列表</Breadcrumb.Item>
             </Breadcrumb>
           </div>
@@ -31,12 +34,22 @@ const articleListPage = (result) => {
             dataSource={articleList}
             renderItem={item => (
               <List.Item>
-                <div className="articleList-title">{item.title}</div>
+                <div className="articleList-title">
+                  <Link href={{ pathname: '/detail', query: { id: item.id } }}>
+                    <a>{item.title}</a>
+                  </Link>
+                </div>
                 <div className="articleList-icon">
                   {/* <span><Icon type="calendar" />{dateFormat(new Date(item.created_time), 'yyyy-mm-dd')}</span> */}
-                  <span><Icon type="calendar" /> {item.created_time}</span>
-                  <span><Icon type="folder" /> {item.typeName}</span>
-                  <span><Icon type="fire" /> {item.view_count}人</span>
+                  <span>
+                    <Icon type="calendar" /> {item.created_time}
+                  </span>
+                  <span>
+                    <Icon type="folder" /> {item.typeName}
+                  </span>
+                  <span>
+                    <Icon type="fire" /> {item.view_count}人
+                  </span>
                 </div>
                 <div className="articleList-content">{item.introduction}</div>
               </List.Item>
@@ -56,14 +69,14 @@ const articleListPage = (result) => {
 const getArticleList = () => {
   return new Promise((resolve, reject) => {
     axios.get('/client/getArticleList').then(res => {
-      resolve(res.data)
-    })
-  })
-}
+      resolve(res.data);
+    });
+  });
+};
 
 // nexjs getInitialProps 专属生命周期
 articleListPage.getInitialProps = async () => {
-  return await getArticleList()
-}
+  return await getArticleList();
+};
 
-export default articleListPage
+export default articleListPage;
