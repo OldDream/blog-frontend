@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import { Row, Col, List, Icon, Breadcrumb } from 'antd';
 import axios from '../utils/axios'
-import dateFormat from 'dateformat'
 import Header from '../components/Header';
 import Author from '../components/Author';
 import Ads from '../components/Ads';
@@ -35,9 +34,9 @@ const articleListPage = (result) => {
                 <div className="articleList-title">{item.title}</div>
                 <div className="articleList-icon">
                   {/* <span><Icon type="calendar" />{dateFormat(new Date(item.created_time), 'yyyy-mm-dd')}</span> */}
-                  <span><Icon type="calendar" />{item.created_time}</span>
-                  <span><Icon type="folder" />{item.typeName}</span>
-                  <span><Icon type="fire" />{item.view_count}人</span>
+                  <span><Icon type="calendar" /> {item.created_time}</span>
+                  <span><Icon type="folder" /> {item.typeName}</span>
+                  <span><Icon type="fire" /> {item.view_count}人</span>
                 </div>
                 <div className="articleList-content">{item.introduction}</div>
               </List.Item>
@@ -56,7 +55,7 @@ const articleListPage = (result) => {
 
 const getArticleList = () => {
   return new Promise((resolve, reject) => {
-    axios.get('/admin/getArticleList').then(res => {
+    axios.get('/client/getArticleList').then(res => {
       resolve(res.data)
     })
   })
