@@ -12,11 +12,37 @@
 .content-div {
   padding: 1.3rem;
   font-size: 1rem;
+  pre {
+    display: block;
+    background-color: #283646 !important;
+    padding: 0.5rem !important;
+    overflow-y: auto;
+    font-weight: 300;
+    font-family: Menlo, monospace;
+    border-radius: 0.3rem;
+    > code {
+      border: 0px !important;
+      background-color: #283646 !important;
+      color: #fff;
+    }
+  }
+
+  code {
+    display: inline-block;
+    background-color: #fff5f5;
+    border-radius: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #ff502c;
+    margin: 0px 3px;
+    line-height: 1.1rem;
+    font-size: 0.87rem;
+  }
 }
 .mdnav-div {
   margin-left: 0;
   position: sticky;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   top: 5px;
   > .title {
     text-align: center;
@@ -24,6 +50,6 @@
     border-bottom: 1px solid rgb(30, 144, 255);
   }
   > .md-category {
-    font-size: 1rem;
+    // font-size: 1rem;
   }
 }

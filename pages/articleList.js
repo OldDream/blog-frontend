@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Row, Col, List, Icon, Breadcrumb } from 'antd';
@@ -11,6 +11,9 @@ import './articleList.scss';
 
 const articleListPage = result => {
   const [articleList, setArticleList] = useState(result.data);
+  useEffect(() => {
+    setArticleList(result.data)
+  })
 
   return (
     <div>
@@ -56,7 +59,7 @@ const articleListPage = result => {
             )}
           />
         </Col>
-        <Col className="common-right" xs={0} sm={0} md={7} lg={5} xl={4}>
+        <Col className="common-right" xs={0} sm={0} md={8} lg={6} xl={5}>
           <Author />
           <Ads />
         </Col>
@@ -66,17 +69,24 @@ const articleListPage = result => {
   );
 };
 
-const getArticleList = () => {
+const getArticleList = ctx => {
+  console.log(ctx);
   return new Promise((resolve, reject) => {
-    axios.get('/client/getArticleList').then(res => {
-      resolve(res.data);
-    });
+    axios
+      .get(
+        ctx.query.typeId
+          ? `/client/getArticleListById?typeId=${ctx.query.typeId}`
+          : '/client/getArticleList'
+      )
+      .then(res => {
+        resolve(res.data);
+      });
   });
 };
 
 // nexjs getInitialProps 专属生命周期
-articleListPage.getInitialProps = async () => {
-  return await getArticleList();
+articleListPage.getInitialProps = async ctx => {
+  return await getArticleList(ctx);
 };
 
 export default articleListPage;

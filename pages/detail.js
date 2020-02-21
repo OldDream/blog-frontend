@@ -5,15 +5,34 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Author from '../components/Author';
 import Ads from '../components/Ads';
-import ReactMarkdown from 'react-markdown';
 import MDNav from 'markdown-navbar';
 import axios from '../utils/axios';
-
+import marked from 'marked'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/monokai-sublime.css';
 import 'markdown-navbar/dist/navbar.css';
 import './detail.scss';
 
 const Detail = (detail) => {
   const [article, setArticle] = useState(detail.data);
+
+  // markedown 渲染
+  const renderer = new marked.Renderer();
+  marked.setOptions({
+    renderer: renderer,
+    gfm: true,
+    pedantic: false,
+    sanitize: false, // 忽略html
+    tables: true,
+    breaks: false,
+    smartLists: true,
+    smartypants: false,
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value;
+    }
+  });
+  
+  let markdownHtml = marked(article.content)
 
   return (
     <div>
@@ -50,12 +69,12 @@ const Detail = (detail) => {
                 <Icon type="fire" /> {article.view_count}人阅读
               </span>
             </div>
-            <div className="content-div">
-              <ReactMarkdown source={article.content} escapeHtml={false} />
+            <div className="content-div" dangerouslySetInnerHTML={{__html: markdownHtml}}>
+              
             </div>
           </div>
         </Col>
-        <Col className="common-right" xs={0} sm={0} md={7} lg={5} xl={4}>
+        <Col className="common-right" xs={0} sm={0} md={8} lg={6} xl={5}>
           <Author />
           <Ads />
           <div className="mdnav-div common-box">
@@ -76,7 +95,6 @@ const Detail = (detail) => {
 const getDetail = (ctx) => {
   return new Promise((resolve, reject) => {
     axios.get('/client/getArticleById?id=' + ctx.query.id).then(res => {
-      console.log(res.data.data)
       resolve(res.data);
     });
   });
