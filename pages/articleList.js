@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Row, Col, List, Icon, Breadcrumb } from 'antd';
@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import Author from '../components/Author';
 import Ads from '../components/Ads';
 import Footer from '../components/Footer';
+import MDDecode from '../components/MDDecode'
 import './articleList.scss';
 
 const articleListPage = result => {
@@ -54,7 +55,9 @@ const articleListPage = result => {
                     <Icon type="fire" /> {item.view_count}人
                   </span>
                 </div>
-                <div className="articleList-content">{item.introduction}</div>
+                <div className="articleList-content">
+                  <MDDecode article={item.introduction} />
+                </div>
               </List.Item>
             )}
           />

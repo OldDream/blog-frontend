@@ -7,6 +7,7 @@ import Author from '../components/Author';
 import Ads from '../components/Ads';
 import Footer from '../components/Footer';
 import axios from '../utils/axios';
+import MDDecode from '../components/MDDecode'
 
 
 import "./index.scss"
@@ -46,7 +47,9 @@ const Home = (result) => {
                     <Icon type="fire" /> {item.view_count}人
                   </span>
                 </div>
-                <div className="list-content">{item.introduction}</div>
+                <div className="list-content">
+                  <MDDecode article={item.introduction} />
+                </div>
               </List.Item>
             )}
           />
