@@ -42,7 +42,7 @@ const Detail = (detail) => {
       </Head>
       <Header />
       <Row className="common-main" type="flex" justify="center">
-        <Col className="common-left" xs={24} sm={24} md={16} lg={18} xl={14}>
+        <Col className="common-left" xs={24} sm={24} md={18} lg={18} xl={14}>
           <div className="breadcrumb-div">
             <Breadcrumb>
               <Breadcrumb.Item>
@@ -74,7 +74,7 @@ const Detail = (detail) => {
             </div>
           </div>
         </Col>
-        <Col className="common-right" xs={0} sm={0} md={8} lg={6} xl={5}>
+        <Col className="common-right" xs={0} sm={0} md={6} lg={6} xl={5}>
           <Author />
           <Ads />
           <div className="mdnav-div common-box">
