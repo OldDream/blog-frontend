@@ -11,7 +11,6 @@ const Header = () => {
   const getNavArray = () => {
     return new Promise((resolve, reject) => {
       axios.get('/client/articleType').then(res => {
-        console.log(res.data.data)
         resolve(res.data.data)
       })
     })
