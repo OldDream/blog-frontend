@@ -36,11 +36,11 @@ const Header = () => {
   return (
     <div className="header">
       <Row type="flex" justify="space-between" align="middle">
-        <Col xs={22} sm={22} md={10} lg={10} xl={10}>
+        <Col xs={22} sm={22} md={18} lg={15} xl={16}>
           <span className="logo">HYN</span>
           <span className="headerText">慢慢琢磨一些技术。。。</span>
         </Col>
-        <Col xs={2} sm={2} md={14} lg={8} xl={6}>
+        <Col xs={2} sm={2} md={6} lg={9} xl={8}>
           <Menu selectedKeys={[selectedKey]} mode="horizontal" className="menuStyle" onClick={handleClick}>
             <Menu.Item key="0">
               <Icon type="appstore" />
