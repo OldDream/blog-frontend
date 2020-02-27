@@ -54,7 +54,7 @@ const Home = (result) => {
             )}
           />
         </Col>
-        <Col className="common-right" xs={0} sm={0} md={8} lg={6} xl={5}>
+        <Col className="common-right" xs={0} sm={0} md={7} lg={5} xl={5}>
           <Author />
           <Ads />
         </Col>
