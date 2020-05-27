@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './style.scss';
 import { Row, Col, Icon, Menu } from 'antd';
-import Link from 'next/link'
 import Router from 'next/router'
 import axios from '../../utils/axios'
 
