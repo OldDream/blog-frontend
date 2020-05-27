@@ -74,7 +74,7 @@ const Detail = (detail) => {
             </div>
           </div>
         </Col>
-        <Col className="common-right" xs={0} sm={0} md={6} lg={6} xl={5}>
+        <Col className="common-right" xs={0} sm={0} md={5} lg={5} xl={5}>
           <Author />
           <Ads />
           <div className="mdnav-div common-box">
