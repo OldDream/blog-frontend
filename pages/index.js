@@ -72,7 +72,7 @@ const getArticleList = () => {
   });
 };
 
-// nexjs getInitialProps 专属生命周期
+// nextjs getInitialProps 专属生命周期
 Home.getInitialProps = async () => {
   return await getArticleList();
 };
