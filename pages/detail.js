@@ -37,7 +37,7 @@ const Detail = (detail) => {
   return (
     <div>
       <Head>
-        <title>HYN's Blog - {article.title}</title>
+        <title>技研小栈 - {article.title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />

@@ -18,7 +18,7 @@ const Home = (result) => {
   return (
     <div>
       <Head>
-        <title>HYN's Blog - 首页</title>
+        <title>技研小栈</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
