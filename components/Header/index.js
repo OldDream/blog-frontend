@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './style.scss';
+import style from './style.module.scss';
 import { Row, Col, Icon, Menu } from 'antd';
 import Router from 'next/router'
 import axios from '../../utils/axios'
@@ -33,14 +33,14 @@ const Header = () => {
   }
 
   return (
-    <div className="header">
+    <div className={style.header}>
       <Row type="flex" justify="space-between" align="middle">
         <Col xs={22} sm={22} md={18} lg={15} xl={16}>
-          <span className="logo">HYN</span>
-          <span className="headerText">慢慢琢磨一些技术。。。</span>
+          <span className={style.logo}>HYN</span>
+          <span className={style.headerText}>慢慢琢磨一些技术。。。</span>
         </Col>
         <Col xs={2} sm={2} md={6} lg={9} xl={8}>
-          <Menu selectedKeys={[selectedKey]} mode="horizontal" className="menuStyle" onClick={handleClick}>
+          <Menu selectedKeys={[selectedKey]} mode="horizontal" className={style.menuStyle} onClick={handleClick}>
             <Menu.Item key="0">
               <Icon type="appstore" />
               全部文章

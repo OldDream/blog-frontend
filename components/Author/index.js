@@ -1,11 +1,11 @@
 import { Avatar, Divider } from 'antd';
-import './style.scss';
+import style from './style.module.scss';
 
 const Author = () => {
   return (
-    <div className="author-div common-box">
+    <div className={style.author-div , style.common-box}>
       <div>
-        <Avatar size={100} src={require('./head.jpg')}></Avatar>
+        <Avatar size={100} src='./head.jpg'></Avatar>
       </div>
       <div className="author-introduction">
         佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发，佛系开发。

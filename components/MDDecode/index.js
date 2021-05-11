@@ -2,7 +2,7 @@ import React from 'react';
 import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css';
-import './style.scss'
+import style from './style.module.scss'
 
 const MDDecode = (props) => {
   const renderer = new marked.Renderer();
@@ -22,7 +22,7 @@ const MDDecode = (props) => {
   
   let markdownHtml = marked(props.article ? props.article : '无内容摘要')
   return (
-    <div className="md-div" dangerouslySetInnerHTML={{ __html: markdownHtml }}></div>
+    <div className={style.md-div} dangerouslySetInnerHTML={{ __html: markdownHtml }}></div>
   );
 }
 

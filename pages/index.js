@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Row, Col, List, Icon } from 'antd';
+import { CalendarOutlined, FireOutlined, FolderOutlined } from '@ant-design/icons';
+import { Row, Col, List } from 'antd';
 import Header from '../components/Header';
 import Author from '../components/Author';
 import Ads from '../components/Ads';
@@ -10,7 +11,7 @@ import axios from '../utils/axios';
 import MDDecode from '../components/MDDecode'
 
 
-import "./index.scss"
+import style from "./index.module.scss"
 
 const Home = (result) => {
   const [articleList, setArticleList] = useState(result.data);
@@ -22,39 +23,39 @@ const Home = (result) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Row className="common-main" type="flex" justify="center">
-        <Col className="common-left" xs={24} sm={24} md={18} lg={18} xl={14}>
+      <Row className={style.common-main} type="flex" justify="center">
+        <Col className={style.common-left} xs={24} sm={24} md={18} lg={18} xl={14}>
           <List
             header={<div>&emsp;最新日志</div>}
             itemLayout="vertical"
             dataSource={articleList}
             renderItem={item => (
               <List.Item>
-                <div className="list-title">
+                <div className={style.list-title}>
                   <Link href={{ pathname: '/detail', query: { id: item.id } }}>
                     <a>{item.title}</a>
                   </Link>
                 </div>
-                <div className="list-icon">
+                <div className={style.list-icon}>
                   {/* <span><Icon type="calendar" />{dateFormat(new Date(item.created_time), 'yyyy-mm-dd')}</span> */}
                   <span>
-                    <Icon type="calendar" /> {item.created_time}
+                    <CalendarOutlined /> {item.created_time}
                   </span>
                   <span>
-                    <Icon type="folder" /> {item.typeName}
+                    <FolderOutlined /> {item.typeName}
                   </span>
                   <span>
-                    <Icon type="fire" /> {item.view_count}人
+                    <FireOutlined /> {item.view_count}人
                   </span>
                 </div>
-                <div className="list-content">
+                <div className={style.list-content}>
                   <MDDecode article={item.introduction} />
                 </div>
               </List.Item>
             )}
           />
         </Col>
-        <Col className="common-right" xs={0} sm={0} md={5} lg={5} xl={5}>
+        <Col className={style.common-right} xs={0} sm={0} md={5} lg={5} xl={5}>
           <Author />
           <Ads />
         </Col>

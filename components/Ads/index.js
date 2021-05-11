@@ -1,7 +1,7 @@
-import './style.scss';
+import style from './style.module.scss';
 
 const Ads = () => (
-  <div className="guangao-div common-box">
+  <div className={style.guangao-div, style.common-box}>
     <div>
       <img src="http://newimg.jspang.com/web111111.jpg" />
     </div>
@@ -12,6 +12,6 @@ const Ads = () => (
       <img src="http://newimg.jspang.com/web111111.jpg" />
     </div>
   </div>
-)
+);
 
 export default Ads;

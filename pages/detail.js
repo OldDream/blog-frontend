@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import { Row, Col, Icon, Breadcrumb } from 'antd';
+import { CalendarOutlined, FireOutlined, FolderOutlined } from '@ant-design/icons';
+import { Row, Col, Breadcrumb } from 'antd';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Author from '../components/Author';
@@ -11,7 +12,7 @@ import marked from 'marked'
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css';
 import 'markdown-navbar/dist/navbar.css';
-import './detail.scss';
+import style from './detail.module.scss';
 
 const Detail = (detail) => {
   const [article, setArticle] = useState(detail.data);
@@ -41,9 +42,9 @@ const Detail = (detail) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Row className="common-main" type="flex" justify="center">
-        <Col className="common-left" xs={24} sm={24} md={18} lg={18} xl={14}>
-          <div className="breadcrumb-div">
+      <Row className={style.common-main} type="flex" justify="center">
+        <Col className={style.common-left} xs={24} sm={24} md={18} lg={18} xl={14}>
+          <div className={style.breadcrumb-div}>
             <Breadcrumb>
               <Breadcrumb.Item>
                 <a href="/">首页</a>
@@ -55,32 +56,32 @@ const Detail = (detail) => {
             </Breadcrumb>
           </div>
           <div>
-            <div className="article-title">
+            <div className={style.article-title}>
               {article.title}
             </div>
-            <div className="icon-list center">
+            <div className={style.icon-list ,style.center}>
               <span>
-                <Icon type="calendar" /> {article.created_time}
+                <CalendarOutlined /> {article.created_time}
               </span>
               <span>
-                <Icon type="folder" />  {article.typeName}
+                <FolderOutlined />  {article.typeName}
               </span>
               <span>
-                <Icon type="fire" /> {article.view_count}人阅读
+                <FireOutlined /> {article.view_count}人阅读
               </span>
             </div>
-            <div className="content-div" dangerouslySetInnerHTML={{__html: markdownHtml}}>
+            <div className={style.content-div} dangerouslySetInnerHTML={{__html: markdownHtml}}>
               
             </div>
           </div>
         </Col>
-        <Col className="common-right" xs={0} sm={0} md={5} lg={5} xl={5}>
+        <Col className={style.common-right} xs={0} sm={0} md={5} lg={5} xl={5}>
           <Author />
           <Ads />
-          <div className="mdnav-div common-box">
-            <div className="title">文章目录</div>
+          <div className={style.mdnav-div, style.common-box}>
+            <div className={style.title}>文章目录</div>
             <MDNav
-              className="md-category"
+              className={style.md-category}
               source={article.content}
               ordered={false}
             />
