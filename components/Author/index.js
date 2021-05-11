@@ -12,7 +12,7 @@ const Author = () => {
         前端~
       </div>
       <Divider>Contact me</Divider>
-      <a href="https://github.com/OldDream">
+      <a href="https://github.com/OldDream" target="_blank">
         <Avatar size={28} icon={<GithubOutlined />} className={style.account} />
       </a>
       {/* <Avatar size={28} icon={<QqOutlined />} className={style.account} />
