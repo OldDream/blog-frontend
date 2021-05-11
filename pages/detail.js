@@ -42,7 +42,7 @@ const Detail = (detail) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Row className="common-right" type="flex" justify="center">
+      <Row type="flex" justify="center">
         <Col className="common-left" xs={24} sm={24} md={18} lg={18} xl={14}>
           <div className="common-breadcrumbWrapper">
             <Breadcrumb>
