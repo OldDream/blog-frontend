@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import style from './style.module.scss';
-import { Row, Col, Icon, Menu } from 'antd';
+import { Row, Col, Menu } from 'antd';
+import { AppstoreOutlined,BugOutlined, BookOutlined,WechatOutlined } from '@ant-design/icons';
+
 import Router from 'next/router'
 import axios from '../../utils/axios'
+
+const getIcon = (key) => {
+  const hashMap = {
+    'bug': <BugOutlined />,
+    'book': <BookOutlined />,
+    'wechat': <WechatOutlined />,
+  }
+  return hashMap[key]
+}
 
 const Header = () => {
   const [navArray, setNavArray] = useState([])
@@ -42,14 +53,14 @@ const Header = () => {
         <Col xs={2} sm={2} md={6} lg={9} xl={8}>
           <Menu selectedKeys={[selectedKey]} mode="horizontal" className={style.menuStyle} onClick={handleClick}>
             <Menu.Item key="0">
-              <Icon type="appstore" />
+            <AppstoreOutlined />
               全部文章
             </Menu.Item>
             {
               navArray.map((item) => {
                 return (
                   <Menu.Item key={item.id}>
-                    <Icon type={item.icon} />
+                    {getIcon(item.icon)}
                     {item.typeName}
                   </Menu.Item>
                 )

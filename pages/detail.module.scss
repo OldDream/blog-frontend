@@ -1,15 +1,15 @@
-.article-title {
+.articleTitle {
   font-size: 1.8rem;
   text-align: center;
   padding: 1rem;
 }
-.icon-list {
+.iconList {
   text-align: center;
   > span {
     margin-left: 0.6rem;
   }
 }
-.content-div {
+.contentDiv {
   padding: 1.3rem;
   font-size: 1rem;
   pre {
@@ -39,7 +39,7 @@
     font-size: 0.87rem;
   }
 }
-.mdnav-div {
+.mdnavDiv {
   margin-left: 0;
   position: sticky;
   margin-top: 0.5rem;
@@ -49,7 +49,7 @@
     color: #888;
     border-bottom: 1px solid rgb(30, 144, 255);
   }
-  > .md-category {
-    // font-size: 1rem;
-  }
+  // > .mdCategory {
+  //   // font-size: 1rem;
+  // }
 }

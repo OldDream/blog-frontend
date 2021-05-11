@@ -6,6 +6,7 @@ body {
   padding: 0 0.3rem;
   border-radius: .3rem;
   border:1px solid #eee;
+  margin-top: 0.3rem;
 }
 .common-right{
   margin-left: .5rem;
@@ -21,8 +22,10 @@ body {
 .common-main{
   margin-top: .5rem;
 }
-.breadcrumb-div{
+.common-breadcrumbWrapper{
   padding: .5rem;
+  margin-left: -0.3rem;
+  margin-right: -0.3rem;
   border-bottom:1px solid #eee;
   background-color: #e1f0ff;
 }

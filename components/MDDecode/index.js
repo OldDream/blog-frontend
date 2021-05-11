@@ -22,7 +22,7 @@ const MDDecode = (props) => {
   
   let markdownHtml = marked(props.article ? props.article : '无内容摘要')
   return (
-    <div className={style.md-div} dangerouslySetInnerHTML={{ __html: markdownHtml }}></div>
+    <div className={style.mdDiv} dangerouslySetInnerHTML={{ __html: markdownHtml }}></div>
   );
 }
 

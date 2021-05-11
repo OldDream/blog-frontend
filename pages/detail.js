@@ -42,9 +42,9 @@ const Detail = (detail) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <Row className={style.common-main} type="flex" justify="center">
-        <Col className={style.common-left} xs={24} sm={24} md={18} lg={18} xl={14}>
-          <div className={style.breadcrumb-div}>
+      <Row className="common-right" type="flex" justify="center">
+        <Col className="common-left" xs={24} sm={24} md={18} lg={18} xl={14}>
+          <div className="common-breadcrumbWrapper">
             <Breadcrumb>
               <Breadcrumb.Item>
                 <a href="/">首页</a>
@@ -56,10 +56,10 @@ const Detail = (detail) => {
             </Breadcrumb>
           </div>
           <div>
-            <div className={style.article-title}>
+            <div className={style.articleTitle}>
               {article.title}
             </div>
-            <div className={style.icon-list ,style.center}>
+            <div className={`${style.iconList} ,${style.center}`}>
               <span>
                 <CalendarOutlined /> {article.created_time}
               </span>
@@ -70,18 +70,18 @@ const Detail = (detail) => {
                 <FireOutlined /> {article.view_count}人阅读
               </span>
             </div>
-            <div className={style.content-div} dangerouslySetInnerHTML={{__html: markdownHtml}}>
+            <div className={style.contentDiv} dangerouslySetInnerHTML={{__html: markdownHtml}}>
               
             </div>
           </div>
         </Col>
-        <Col className={style.common-right} xs={0} sm={0} md={5} lg={5} xl={5}>
+        <Col className="common-right" xs={0} sm={0} md={5} lg={5} xl={5}>
           <Author />
           <Ads />
-          <div className={style.mdnav-div, style.common-box}>
+          <div className={`${style.mdnavDiv}  "common-box"`}>
             <div className={style.title}>文章目录</div>
             <MDNav
-              className={style.md-category}
+              className={style.mdCategory}
               source={article.content}
               ordered={false}
             />
