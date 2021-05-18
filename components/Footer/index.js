@@ -1,6 +1,6 @@
 const Footer = () => (
   <div className="footer-div">
-    <p>Based on Next.Js + Egg.Js</p>
+    <a href="https://beian.miit.gov.cn/" target="_blank">闽ICP备2021006708号</a>
     <style jsx>{`
       .footer-div {
         width: 100%;
