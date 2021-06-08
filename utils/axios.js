@@ -1,8 +1,8 @@
 import axios from 'axios'
 
 const instance = axios.create({
-  // baseURL: 'http://127.0.0.1:7001',
-  baseURL: 'http://huangyn.icu/api',
+  // baseURL: '//127.0.0.1:7001',
+  baseURL: '//huangyn.icu/api',
   timeout: 6000,
 })
 
