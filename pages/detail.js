@@ -50,7 +50,7 @@ const Detail = (detail) => {
                 <a href="/">首页</a>
               </Breadcrumb.Item>
               <Breadcrumb.Item>
-                <a href="/articleList">文章列表</a>
+                <a href={`/articleList?typeId=${article.typeId}`}>文章列表</a>
               </Breadcrumb.Item>
               <Breadcrumb.Item>{article.title}</Breadcrumb.Item>
             </Breadcrumb>
