@@ -1,6 +1,8 @@
 # blog-frontend
 
-next.Js + css and scss support
+next.Js + scss support
 
-Antd partial import
+Antd partial import.
+
+Online Demo https://www.huangyn.icu/
 
