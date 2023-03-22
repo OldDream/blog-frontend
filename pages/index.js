@@ -73,7 +73,30 @@ const getArticleList = () => {
   });
 };
 
-// 新版本已变成 getStaticProps 与 getServerSideProps 
+// 新版本已变成 getStaticProps 与 getServerSideProps，https://juejin.cn/post/7211422882251931707
+// getStaticProps 每次对页面对应URL请求，
+/**
+ * 一般在编写首页、或静态展示页面等情况下使用，
+ * 只会在构建时运行一次，具有以下几种特点:
+
+仅可在服务端获取数据。
+在构建时运行，将数据预渲染到 HTML 文件中。
+对于每个页面，在构建时只会运行一次，不会随着页面请求而重新运行，因此对于数据频繁变化的情况不适用。
+对于数据变化不频繁的静态页面，可以提高页面渲染性能和用户体验。
+
+
+ */
+// getServerSideProps 
+/**
+ * 
+ * @returns 在编写数据需要频繁更新的页面时使用, 以便于随时获取最新数据，特点如下：
+
+在服务端获取数据。
+每次页面请求都会重新运行 getServerSideProps 方法，因此可以实时获取最新数据。
+适用于需要实时获取数据的情况。
+不能用于在构建时预渲染页面，因此对于数据变化不频繁的静态页面不适用。
+
+ */
 // nextjs getInitialProps 专属生命周期
 Home.getInitialProps = async () => {
   return await getArticleList();
