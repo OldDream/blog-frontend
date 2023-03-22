@@ -73,6 +73,7 @@ const getArticleList = () => {
   });
 };
 
+// 新版本已变成 getStaticProps 与 getServerSideProps 
 // nextjs getInitialProps 专属生命周期
 Home.getInitialProps = async () => {
   return await getArticleList();
